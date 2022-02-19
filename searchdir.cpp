@@ -10,7 +10,7 @@
 #include <stdio.h> 
 #include <string.h> 
 
-int walker(char *dirname, char *searching, char *result ) {
+int isFileExist(char* const dirname, char* const searching, char*  const result ) {
   DIR           *d;
   struct dirent *dir;
   d = opendir( dirname );
@@ -24,7 +24,7 @@ int walker(char *dirname, char *searching, char *result ) {
     }
     if( dir->d_type == DT_DIR ) {
       chdir( dir->d_name );
-      walker(dirname, searching, result );
+      isFileExist(dirname, searching, result );
       chdir( ".." );
     } else {
       if( strcmp( dir->d_name, searching ) == 0 ) {
@@ -42,7 +42,9 @@ int walker(char *dirname, char *searching, char *result ) {
 
 int main( ) {
   char buf[MAXPATHLEN] = { 0 };
-  if( walker("./files", "fg3999", buf ) == 0 ) {
+  char filename[] = "fg9";
+  char dir[] = "./files";
+  if( isFileExist(dir, filename, buf ) == 0 ) {
     printf( "Found: %s\n", buf );
   } else {
     puts( "Not found" );

@@ -14,25 +14,14 @@ const char* map_file(const char* fname, size_t& length);
 int main()
 {
     size_t length;
-    auto f = map_file("big.txt", length);
-    auto l = f + length;
-    string data;
-    string newd;
-    uintmax_t m_numLines = 0;
-    while (f && f!=l){
-        if ((f = static_cast<const char*>(memchr(f, '\n', l-f)))){
-            // data += f;
-            newd = f;
-            
-            if(newd.compare("<This is just a line for test big data, so i don't want to it 3>") == 0){
-                cout<<"yes matched in line: "<<m_numLines<<endl;
-            }
-            m_numLines++, f++;
-        }
-
+    string f;
+    for (size_t i = 0; i < 100; i++)
+    {
+        string filename = "./files/fg"+ to_string(i);
+        f = map_file(filename, length);
+        cout<<f<<endl;
     }
-    // cout << data << "\n";
-    cout << "m_numLines = " << m_numLines << "\n";
+    
 }
 
 void handle_error(const char* msg) {

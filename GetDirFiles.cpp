@@ -1,6 +1,7 @@
 #include <glob.h>
 #include <vector>
 #include <iostream>
+#include <cstdio>
 using namespace std;
 
 vector<string> globVector(const string& pattern){
@@ -15,10 +16,13 @@ vector<string> globVector(const string& pattern){
 }
 
 int main(){
-    vector<string> files = globVector("./*");
+    vector<string> files = globVector("./files/*");
     for (size_t i = 0; i < 20; i++)
     {
-        cout<<files[i]<<endl;
+        char buffer[500];
+        strcpy(buffer, files[i].c_str());
+        cout<<remove(buffer)<<endl;
     }
+    // cout<<remove("./files/fg6")<<endl;
     
 }
