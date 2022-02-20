@@ -21,9 +21,11 @@ class fileOperations{
         bool DeleteFile(char* const filename);
         int isFileExist(char* const dirname, char* const searching, char*  const result );
         bool UpdateFile(char* const dirname, char* const filename, std::string content);
+        bool renameFile(char* const oldname, char* const newname);
         bool CreateDir(std::string dirname, int mode);
         bool DeleteDir(std::string dirname);
-        
+        bool isdirExist(std::string dirname);
+        bool renameDir(char* const oldname, char* const newname);
 };
 
 int fileOperations::isFileExist(char* const dirname, char* const searching, char*  const result ) {
@@ -113,6 +115,15 @@ bool fileOperations::UpdateFile(char* const dirname, char* const filename, std::
     }
 }
 
+bool fileOperations::renameFile(char* const oldname, char* const newname){
+    if (rename(oldname, newname) != 0)
+    {
+        return false;
+    }else{
+        return true;
+    }
+}
+
 bool fileOperations::CreateDir(std::string  dirname, int mode){
     char buffer[MAXPATHLEN];
     strcpy(buffer, dirname.c_str());
@@ -120,6 +131,28 @@ bool fileOperations::CreateDir(std::string  dirname, int mode){
 		return true;
     }else{
 		return true;
+    }
+}
+
+bool fileOperations::isdirExist(std::string dirname){
+    char buffer[MAXPATHLEN];
+    strcpy(buffer, dirname.c_str());
+    DIR *dir = opendir(buffer);
+    if (dir)
+    {
+        /* Directory exists. */
+        closedir(dir);
+        return true;
+    }
+    else if (ENOENT == errno)
+    {
+        return false;
+        /* Directory does not exist. */
+    }
+    else
+    {
+        return false;
+        /* opendir() failed for some other reason. */
     }
 }
 
@@ -132,18 +165,29 @@ bool fileOperations::DeleteDir(std::string dirname){
         files.push_back(std::string(glob_result.gl_pathv[i]));
     }
     globfree(&glob_result);
-    int i = 0;
-    while (files[i] != "")
+    char buffer[MAXPATHLEN];
+    for (size_t i = 0; i < files.size(); i++)
     {
-       char buffer[MAXPATHLEN];
-       strcpy(buffer, files[i].c_str());
-       remove(buffer);
-       i++;
+        strcpy(buffer, files[i].c_str());
+        if (this->isdirExist(buffer) == true)
+        {
+            this->DeleteDir(files[i]);
+        }else{
+            remove(buffer);
+        }
     }
-    char buffer2[MAXPATHLEN];
-    strcpy(buffer2, dirname.c_str());
-    remove(buffer2);
+        strcpy(buffer, dirname.c_str());
+        remove(buffer);
     return true;
+}
+
+bool fileOperations::renameDir(char* const oldname, char* const newname){
+    if (rename(oldname, newname) != 0)
+    {
+        return false;
+    }else{
+        return true;
+    }
 }
 
 
@@ -186,6 +230,14 @@ int main(int argc, char const *argv[]) {
     // }else{
     //     std::cout<<"failed"<<std::endl;
     // }
-    f.DeleteDir("./test");
+    // f.DeleteDir("./dicreated");
+    // std::cout<<f.isdirExist("dircreateds")<<std::endl;
+    char oldname[] = "test2.txt";
+    char newname[] = "lock.txt";
+    if(f.renameFile(oldname, newname)){
+        std::cout<<"successfully renamed"<<std::endl;
+    }else{
+        std::cout<<"failed renamed"<<std::endl;
+    }
     return 0;
 }
