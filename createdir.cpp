@@ -9,7 +9,7 @@ int main()
 {
 
 	// Creating a directory
-	if (mkdir("./files/geeksforgeeks", 0777) == -1)
+	if (mkdir("/usr/local/test", 0777) == -1)
 		cerr << "Error : " << strerror(errno) << endl;
 
 	else

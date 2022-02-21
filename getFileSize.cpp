@@ -46,6 +46,7 @@ string SizeCalculator(const int* sizeByte){
                 }
                 
             }else{
+                cout<<sizemb<<endl;
                 size = to_string(sizemb)+"Mb";
             }
             
@@ -59,7 +60,7 @@ string SizeCalculator(const int* sizeByte){
 }
 
 int main() {
-    int getSizeInByte = filesize("big.txt");
+    int getSizeInByte = filesize("file_new.txt");
     string size = SizeCalculator(&getSizeInByte);
     cout<<"File size is: "<<size<<endl;
     return EXIT_SUCCESS;
