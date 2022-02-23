@@ -70,6 +70,9 @@
         "map": "cpp",
         "set": "cpp",
         "stack": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "condition_variable": "cpp",
+        "future": "cpp",
+        "thread": "cpp"
     }
 }

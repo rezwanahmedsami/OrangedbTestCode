@@ -2,23 +2,28 @@
 #include <chrono>
 #include <string>
 #include <iostream>
+using namespace std;
 
+void function1(){
+    for (size_t i = 0; i < 200; i++)
+    {
+        cout<<"+";
+    }
+}
+
+void function2(){
+    for (size_t i = 0; i < 200; i++)
+    {
+        cout<<"-";
+    }
+}
 
 
 int main() {
 
-    std::cout << "Type exit to quit." << std::endl;
-
-    // initialize other std::thread handlers here 
-
-    std::string input;
-    
-    while (input != "exit") {
-        std::getline(std::cin, input);
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    }
-
-    std::cout << "Cleaning up and quitting" << std::endl;
+    std::thread worker1(function1);
+    // std::thread worker2(function2);
+    cout<<endl;
 
     return 0;
 };
