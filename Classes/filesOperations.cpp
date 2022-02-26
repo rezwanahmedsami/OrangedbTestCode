@@ -204,9 +204,9 @@ int main(int argc, char const *argv[]) {
     //     std::cout<<"File Content: "<<f.Readfile(arr[i])<<std::endl;
         
     // }
-    char buf[MAXPATHLEN] = { 0 };
-    char filename[] = "test2.txt";
-    char dir[] = "./test";
+    // char buf[MAXPATHLEN] = { 0 };
+    // char filename[] = "test2.txt";
+    // char dir[] = "./test";
     // std::cout<<f.Readfile(filename)<<std::endl;
     // if(f.DeleteFile(filename)){
     //     std::cout<<"Successfully file deleted"<<std::endl;
@@ -230,14 +230,14 @@ int main(int argc, char const *argv[]) {
     // }else{
     //     std::cout<<"failed"<<std::endl;
     // }
-    // f.DeleteDir("./dicreated");
+    f.DeleteDir("./test");
     // std::cout<<f.isdirExist("dircreateds")<<std::endl;
-    char oldname[] = "test2.txt";
-    char newname[] = "lock.txt";
-    if(f.renameFile(oldname, newname)){
-        std::cout<<"successfully renamed"<<std::endl;
-    }else{
-        std::cout<<"failed renamed"<<std::endl;
-    }
+    // char oldname[] = "test2.txt";
+    // char newname[] = "lock.txt";
+    // if(f.renameFile(oldname, newname)){
+    //     std::cout<<"successfully renamed"<<std::endl;
+    // }else{
+    //     std::cout<<"failed renamed"<<std::endl;
+    // }
     return 0;
 }
