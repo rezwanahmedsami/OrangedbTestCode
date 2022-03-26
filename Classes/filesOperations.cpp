@@ -201,8 +201,8 @@ bool MatchString(std::string str1, std::string str2){
 int main(int argc, char const *argv[]) {
     
     fileOperations f;
-    std::string arr[40] = {"test1.txt", "test2.txt", "test3.txt", "test4.txt"};
-    std::string contents = "what happend to you buddy?";
+    // std::string arr[40] = {"test1.txt", "test2.txt", "test3.txt", "test4.txt"};
+    // std::string contents = "what happend to you buddy?";
     
     // for (size_t i = 0; i < 4; i++)
     // {
@@ -215,19 +215,20 @@ int main(int argc, char const *argv[]) {
     
     char filename[] = "../.config";
     std::string fc = f.Readfile(filename);
-    std::cout<<fc<<std::endl;
-    // for (size_t i = 0; i < fc.length(); i++)
-    // {
-    //     char ch = fc[i];
-    //     if (std::strcmp(ch, ";"))
-    //     {
-    //         std::cout<<"yes"<<std::endl;
-    //         break;
-    //     }else{
-    //         std::cout<<fc[i]<<std::endl;
-    //     }
-        
-    // }
+    int line = 0;
+    const char* breakpoint = ";";
+    std::string  singleLine;
+    for (size_t i = 0; i < fc.length(); i++)
+    {
+        if (strcmp(&fc[i], breakpoint) == 0)
+        {
+            std::cout<<fc[i]<<std::endl;
+            line++;
+        }else{
+            singleLine += fc[i];
+        }
+    }
+    std::cout<<singleLine<<std::endl;
     
     // if(f.DeleteFile(filename)){
     //     std::cout<<"Successfully file deleted"<<std::endl;

@@ -75,6 +75,13 @@
         "future": "cpp",
         "thread": "cpp",
         "typeindex": "cpp",
-        "variant": "cpp"
-    }
+        "variant": "cpp",
+        "cinttypes": "cpp",
+        "coroutine": "cpp",
+        "forward_list": "cpp",
+        "numeric": "cpp",
+        "unordered_set": "cpp",
+        "valarray": "cpp",
+        "-std=c++11": "cpp"
+    },
 }

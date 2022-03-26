@@ -3224,7 +3224,7 @@ struct iterator_types <
     It,
     void_t<typename It::difference_type, typename It::value_type, typename It::pointer,
     typename It::reference, typename It::iterator_category >>
-{
+    {
     using difference_type = typename It::difference_type;
     using value_type = typename It::value_type;
     using pointer = typename It::pointer;
