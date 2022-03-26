@@ -13,18 +13,19 @@ const char* map_file(const char* fname, size_t& length);
 int main()
 {
     size_t length;
-    auto f = map_file("big.txt", length);
+    auto f = map_file(".config", length);
     auto l = f + length;
     string data;
     uintmax_t m_numLines = 0;
     while (f && f!=l){
         if ((f = static_cast<const char*>(memchr(f, '\n', l-f)))){
             // data += f;
+            cout<<f<<endl;
             m_numLines++, f++;
         }
 
     }
-    // cout << data << "\n";
+    
     cout << "m_numLines = " << m_numLines << "\n";
 }
 

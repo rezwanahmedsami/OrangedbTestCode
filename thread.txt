@@ -1,1 +1,12 @@
-g++ -std=c++11 ./thread.cpp -o thread
+/*MAC*/
+/* this command only work on mac perfect */
+command> g++ -std=c++11 ./thread.cpp -o thread
+/*MAC*/
+
+
+/* Linux */
+/*
+Tested on linux distro: [centos 7],
+/*
+command> g++ -std=c++11 ./thread.cpp -o thread -lpthread
+/* Linux */

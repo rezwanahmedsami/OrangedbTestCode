@@ -190,7 +190,13 @@ bool fileOperations::renameDir(char* const oldname, char* const newname){
     }
 }
 
-
+bool MatchString(std::string str1, std::string str2){
+        if(str1.compare(str2) == 0){
+            return true;
+        }else{
+            return false;
+        }
+    };
 
 int main(int argc, char const *argv[]) {
     
@@ -205,9 +211,24 @@ int main(int argc, char const *argv[]) {
         
     // }
     // char buf[MAXPATHLEN] = { 0 };
-    // char filename[] = "test2.txt";
     // char dir[] = "./test";
-    // std::cout<<f.Readfile(filename)<<std::endl;
+    
+    char filename[] = "../.config";
+    std::string fc = f.Readfile(filename);
+    std::cout<<fc<<std::endl;
+    // for (size_t i = 0; i < fc.length(); i++)
+    // {
+    //     char ch = fc[i];
+    //     if (std::strcmp(ch, ";"))
+    //     {
+    //         std::cout<<"yes"<<std::endl;
+    //         break;
+    //     }else{
+    //         std::cout<<fc[i]<<std::endl;
+    //     }
+        
+    // }
+    
     // if(f.DeleteFile(filename)){
     //     std::cout<<"Successfully file deleted"<<std::endl;
     // }else{
@@ -230,7 +251,7 @@ int main(int argc, char const *argv[]) {
     // }else{
     //     std::cout<<"failed"<<std::endl;
     // }
-    f.DeleteDir("./test");
+    // f.DeleteDir("./test");
     // std::cout<<f.isdirExist("dircreateds")<<std::endl;
     // char oldname[] = "test2.txt";
     // char newname[] = "lock.txt";
