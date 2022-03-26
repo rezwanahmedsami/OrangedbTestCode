@@ -213,22 +213,22 @@ int main(int argc, char const *argv[]) {
     // char buf[MAXPATHLEN] = { 0 };
     // char dir[] = "./test";
     
-    char filename[] = "../.config";
-    std::string fc = f.Readfile(filename);
-    int line = 0;
-    const char* breakpoint = ";";
-    std::string  singleLine;
-    for (size_t i = 0; i < fc.length(); i++)
-    {
-        if (strcmp(&fc[i], breakpoint) == 0)
-        {
-            std::cout<<fc[i]<<std::endl;
-            line++;
-        }else{
-            singleLine += fc[i];
-        }
-    }
-    std::cout<<singleLine<<std::endl;
+    // char filename[] = "../.config";
+    // std::string fc = f.Readfile(filename);
+    // int line = 0;
+    // const char* breakpoint = ";";
+    // std::string  singleLine;
+    // for (size_t i = 0; i < fc.length(); i++)
+    // {
+    //     if (strcmp(&fc[i], breakpoint) == 0)
+    //     {
+    //         std::cout<<fc[i]<<std::endl;
+    //         line++;
+    //     }else{
+    //         singleLine += fc[i];
+    //     }
+    // }
+    // std::cout<<singleLine<<std::endl;
     
     // if(f.DeleteFile(filename)){
     //     std::cout<<"Successfully file deleted"<<std::endl;
