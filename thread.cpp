@@ -12,21 +12,21 @@ void function1(){
 }
 
 void function2(){
-    for (size_t i = 0; i < 500; i++)
+    for (size_t i = 0; i < 1000; i++)
     {
         cout<<"-";
     }
 }
 
 void function3(){
-    for (size_t i = 0; i < 500; i++)
+    for (size_t i = 0; i < 1000; i++)
     {
         cout<<"_";
     }
 }
 
 void function4(){
-    for (size_t i = 0; i < 500; i++)
+    for (size_t i = 0; i < 1000; i++)
     {
         cout<<"~";
     }

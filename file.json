@@ -1,4 +1,5 @@
 {
-    "name": "SAmi",
-    "ts": true
+    "name": "Test config",
+    "ts": true,
+    "inttest": 4546
 }
