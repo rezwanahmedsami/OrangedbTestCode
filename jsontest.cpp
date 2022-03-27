@@ -9,6 +9,6 @@ int main()
     json j;
     i >> j;
     
-    std::cout<<j["ts"]<<std::endl;
+    std::cout<<j["inttest"]<<std::endl;
     return 0;
 }
